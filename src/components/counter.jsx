@@ -10,34 +10,43 @@ class Counter extends Component {
         super();
         this.handleIncrement = this.handleIncrement.bind(this);
         this.handleDecrement = this.handleDecrement.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     renderTags(){
         if (this.state.tags.length === 0) return <p>There are no tags!</p>;
 
-        return  <ul>{ this.state.tags.map(tag => <li key={tag}>{tag}</li>) }</ul>;
-    }
+        return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
+    };
 
-    handleIncrement() {
+    handleIncrement(product) {
+        console.log(product);
         this.setState({count: this.state.count + 1});
-    }
+    };
 
     handleDecrement() {
         this.setState({count: this.state.count - 1});
+    };
+
+    handleDelete() {
+        this.setState({count: this.state.count = 0});
     }
 
     render() { 
         return (
-            <React.Fragment>
+            <div>
                 { this.renderTags() }
                 <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-                <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">
-                    Increment
+                <button onClick={this.handleIncrement} className="btn btn-secondary m-2 btn-sm">
+                    +
                 </button>
-                <button onClick={this.handleDecrement} classname="btn btn-danger btn-sm">
-                    Decrement
+                <button onClick={this.handleDecrement} className="btn btn-secondary m-2 btn-sm">
+                    -
                 </button>
-            </React.Fragment>
+                <button onClick={this.handleDelete} className="btn btn-danger m-2 btn-sm">
+                    Delete
+                </button>
+            </div>
         );
     }
 

@@ -12,7 +12,7 @@ class Counter extends Component {
                 <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
                 <button className="btn btn-secondary btn-small">Increment</button>
                 <ul>
-                    { this.state.tags.map(tag => <li>{tag}</li>) }
+                    { this.state.tags.map(tag => <li key={tag}>{tag}</li>) }
                 </ul>
             </React.Fragment>
         );

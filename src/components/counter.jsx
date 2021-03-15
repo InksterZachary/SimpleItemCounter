@@ -18,7 +18,7 @@ class Counter extends Component {
 
         return <ul>{this.state.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>;
     };
-
+    
     handleIncrement(product) {
         console.log(product);
         this.setState({count: this.state.count + 1});

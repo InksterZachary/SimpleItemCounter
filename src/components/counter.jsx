@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = {
-        value: this.props.value,
-        tags: []
+        count: this.props.value
     };
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.handleIncrement = this.handleIncrement.bind(this);
         this.handleDecrement = this.handleDecrement.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        
     }
 
     renderTags(){
@@ -21,18 +21,19 @@ class Counter extends Component {
     
     handleIncrement(product) {
         console.log(product);
-        this.setState({value: this.state.value + 1});
+        this.setState({count: this.state.count + 1});
     };
 
     handleDecrement() {
-        this.setState({value: this.state.value - 1});
+        this.setState({count: this.state.count - 1});
     };
 
     handleDelete() {
-        this.setState({value: this.state.value = 0});
-    }
+        this.setState({count: this.state.count = 0});
+    };
 
     render() { 
+        console.log('this', this.props);
         return (
             <div>
                 {/* { this.renderTags() } */}

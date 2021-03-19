@@ -9,7 +9,7 @@ class Counter extends Component {
         super(props);
         this.handleIncrement = this.handleIncrement.bind(this);
         this.handleDecrement = this.handleDecrement.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
+        this.handleDelete = this.props.onDelete.bind(this);
         
     }
 
@@ -28,9 +28,7 @@ class Counter extends Component {
         this.setState({value: this.state.value - 1});
     };
 
-    handleDelete() {
-        this.setState({value: this.state.value = 0});
-    };
+    
 
     render() { 
         console.log('this', this.props);
@@ -44,7 +42,7 @@ class Counter extends Component {
                 <button onClick={this.handleDecrement} className="btn btn-secondary m-2 btn-sm">
                     -
                 </button>
-                <button onClick={this.handleDelete} className="btn btn-danger m-2 btn-sm">
+                <button onClick={() => this.props.onDelete(this.props.id)} className="btn btn-danger m-2 btn-sm">
                     Delete
                 </button>
             </div>

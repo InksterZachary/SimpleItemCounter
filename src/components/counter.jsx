@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
-    state={
-        value: this.props.counter.value
-    }
+    
     constructor(props){
         super(props);
-        // this.handleIncrement = this.handleIncrement.bind(this);
-        // this.handleDecrement = this.handleDecrement.bind(this);
-        // this.handleDelete = this.props.onDelete.bind(this);
-        
     }
 
     renderTags(){
@@ -26,7 +20,7 @@ class Counter extends Component {
                 <button onClick={() => this.props.onIncrement(this.props.counter)} className="btn btn-secondary m-2 btn-sm">
                     +
                 </button>
-                <button onClick={() => this.props.onIncrement(this.props.counter)} className="btn btn-secondary m-2 btn-sm">
+                <button onClick={() => this.props.onDecrement(this.props.counter)} className="btn btn-secondary m-2 btn-sm">
                     -
                 </button>
                 <button onClick={() => this.props.onDelete(this.props.counter.id)} className="btn btn-danger m-2 btn-sm">
